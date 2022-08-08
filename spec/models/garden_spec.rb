@@ -32,11 +32,12 @@ RSpec.describe Garden do
         PlotPlant.create!(plot_id: plot_4.id, plant_id: plant_3.id)
         PlotPlant.create!(plot_id: plot_4.id, plant_id: plant_4.id)
 
-        value = turing_garden.plants_below_100_days.map do |plant|
+        plots_plants_array = turing_garden.plants_below_100_days.map do |plant|
           plant.plant_name
         end
-
-        expect(value).to_not include(plant_3.name)
+        expect(plots_plants_array).to include(plant_1.name)
+        expect(plots_plants_array).to include(plant_2.name)
+        expect(plots_plants_array).to_not include(plant_3.name)
     end
   end
 end
