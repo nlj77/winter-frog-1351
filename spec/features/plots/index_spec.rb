@@ -62,13 +62,13 @@ RSpec.describe "Plots Index Page" do
     end
 
     it 'displays a link to remove plant from plot and returns back to index page' do
-        within("#plot-#{@plot_4.id}") do
-            within("#plant-#{@plant_2.id}") do
+        within("#plot-#{@plot_3.id}") do
+            within("#plant-#{@plant_3.id}") do
                 click_link 'Remove'
             end
             expect(current_path).to eq("/plots")
-            expect(page).to_not have_content(@plant_2.name)
-            end
+            expect(page).to_not have_content(@plant_3.name)
+        end
     end
 end
 
